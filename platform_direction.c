@@ -1,0 +1,1 @@
+enum PlatformDirection { LEFT, RIGHT };
