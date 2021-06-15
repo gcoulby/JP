@@ -1,1 +1,1 @@
-enum Sound { JUMP, GAME_OVER };
+enum Sound { JUMP, GAME_OVER, LOGO };

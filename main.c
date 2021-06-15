@@ -12,7 +12,10 @@
 #include "sound.c"
 #include "gbt_player.h"
 #include "Splash.c"
+#include "GameOverSplash.c"
 #include "SplashTiles.c"
+#include "IonicLimbMap.c"
+#include "IonicLimbTiles.c"
 
 extern const unsigned char * song_Data[];
 
@@ -58,6 +61,13 @@ void playSound(enum Sound sound){
             NR12_REG = 0x54;
             NR13_REG = 0x73;
             NR14_REG = 0x86;
+            break;
+        case LOGO:
+            NR10_REG = 0x7f;
+            NR11_REG = 0xbf;
+            NR12_REG = 0x87;
+            NR13_REG = 0x37;
+            NR14_REG = 0x87;
             break;
     }
 }
@@ -193,35 +203,35 @@ void setScore(BOOLEAN increment){
     if(increment) score++;
     for (UINT8 i = 0; i < 4; i++)
     {
-        windowmap[7+i] = (unsigned char) (0x23);
+        windowmap[6+i] = (unsigned char) (0x23);
     }
     
     if(score < 10){  
-        windowmap[10] = (unsigned char) (0x23 + score);
+        windowmap[9] = (unsigned char) (0x23 + score);
     }
     else if(score < 100){
         UINT8 tens = score / 10;
         UINT8 ones = score % 10;
-        windowmap[9] = (unsigned char) (0x23 + tens);
-        windowmap[10] = (unsigned char) (0x23 + ones);
+        windowmap[8] = (unsigned char) (0x23 + tens);
+        windowmap[9] = (unsigned char) (0x23 + ones);
     }
     else if(score < 1000){
         UINT8 huns = score / 100;
         UINT8 tens = (score % 100) / 10;
         UINT8 ones = score % 10;
-        windowmap[8] = (unsigned char) (0x23 + huns);
-        windowmap[9] = (unsigned char) (0x23 + tens);
-        windowmap[10] = (unsigned char) (0x23 + ones);
+        windowmap[7] = (unsigned char) (0x23 + huns);
+        windowmap[8] = (unsigned char) (0x23 + tens);
+        windowmap[9] = (unsigned char) (0x23 + ones);
     }
     else if(score < 10000){
         UINT8 thous = score / 1000;
         UINT8 huns = (score % 1000) / 100;
         UINT8 tens = (score % 100) / 10;
         UINT8 ones = score % 10;
-        windowmap[7] = (unsigned char) (0x23 + thous);
-        windowmap[8] = (unsigned char) (0x23 + huns);
-        windowmap[9] = (unsigned char) (0x23 + tens);
-        windowmap[10] = (unsigned char) (0x23 + ones);
+        windowmap[6] = (unsigned char) (0x23 + thous);
+        windowmap[7] = (unsigned char) (0x23 + huns);
+        windowmap[8] = (unsigned char) (0x23 + tens);
+        windowmap[9] = (unsigned char) (0x23 + ones);
     }
 }
 
@@ -258,6 +268,15 @@ void loadFonts(){
     font_set(min_font);
 }
 
+void showLogo(){
+    set_bkg_data(0,120, IonicLimbTiles);
+    set_bkg_tiles(0,0,20,18, IonicLimbMap);
+    move_win(7,0);
+    SHOW_BKG;
+    playSound(LOGO);
+    performantDelay(200);
+}
+
 void showStartScreen(){
     set_win_tiles(0,0,20,18, Splash);
     move_win(7,0);
@@ -266,12 +285,17 @@ void showStartScreen(){
 }
 
 void showGameOverScreen(){
+    for (UINT8 i = 0; i < 4; i++)
+    {
+        GameOverSplash[346+i] = windowmap[6+i];
+    }
+    
     initPlatform(0, 170, 100);
     initPlatform(1, 170, 60);
     initPlatform(2, 170, 60);
     initPlatform(3, 170, 60);
     initPlayer(170);
-    set_win_tiles(0,0,20,18, Splash);
+    set_win_tiles(0,0,20,18, GameOverSplash);
     move_win(7,0);
     SHOW_WIN;
     waitpad(J_START);
@@ -404,9 +428,10 @@ void main()
     NR50_REG = 0x77; // sets the volume for both left and right channel just set to max 0x77
     NR51_REG = 0xFF; // is 1111 1111 in binary, select which chanels we want to use in this case all of them. One bit for the L one bit for the R of all four channels
 
+    showLogo();
 
     loadFonts();
-    set_bkg_data(0,47, SplashTiles);
+    set_bkg_data(0,55, SplashTiles);
     showStartScreen();
     seedRandom();
 

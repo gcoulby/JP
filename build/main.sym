@@ -7,8 +7,11 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 _BASE_JUMP_SPEED                                               00000E GR
+  0 _BASE_JUMP_SPEED                                               000DE4 GR
     _DIV_REG                                                       ****** GX
+  1 _GameOverSplash                                                0000D6 GR
+  0 _IonicLimbMap                                                  0004FB GR
+  0 _IonicLimbTiles                                                000663 GR
     _LCDC_REG                                                      ****** GX
     _LY_REG                                                        ****** GX
     _NR10_REG                                                      ****** GX
@@ -19,96 +22,99 @@ Symbol Table
     _NR50_REG                                                      ****** GX
     _NR51_REG                                                      ****** GX
     _NR52_REG                                                      ****** GX
-  1 _Splash                                                        0000EC GR
-  1 _SplashTiles                                                   000254 GR
+  0 _Splash                                                        000023 GR
+  0 _SplashTiles                                                   00018B GR
   1 _Sprites                                                       000000 GR
     _WX_REG                                                        ****** GX
     _WY_REG                                                        ****** GX
     __divuint                                                      ****** GX
     __modsint                                                      ****** GX
     __moduint                                                      ****** GX
-  1 _activePlatform                                                000575 GR
-  0 _activePlatformIsWaiting                                       00070C GR
-  0 _changeActivePlatform                                          0005A0 GR
-  1 _currentSpeedY                                                 000571 GR
+  1 _activePlatform                                                00026F GR
+  0 _activePlatformIsWaiting                                       001566 GR
+  0 _changeActivePlatform                                          001392 GR
+  1 _currentSpeedY                                                 00026B GR
     _disable_interrupts                                            ****** GX
     _enable_interrupts                                             ****** GX
-  1 _floor                                                         000574 GR
-  1 _fontNumBase                                                   00057D GR
+  1 _floor                                                         00026E GR
+  1 _fontNumBase                                                   000277 GR
     _font_init                                                     ****** GX
     _font_load                                                     ****** GX
     _font_min                                                      ****** GX
     _font_set                                                      ****** GX
-  1 _gameActive                                                    00057A GR
-  1 _gameOverMap                                                   0000CB GR
+  1 _gameActive                                                    000274 GR
+  0 _gameOverMap                                                   00000D GR
     _gbt_loop                                                      ****** GX
     _gbt_play                                                      ****** GX
     _gbt_stop                                                      ****** GX
     _gbt_update                                                    ****** GX
-  0 _getRand                                                       00042D GR
-  0 _gravity                                                       00000D GR
-  0 _init                                                          0008F3 GR
-  0 _initPlatform                                                  00013B GR
-  0 _initPlayer                                                    0001DC GR
+  0 _getRand                                                       00121F GR
+  0 _gravity                                                       000DE3 GR
+  0 _init                                                          00174D GR
+  0 _initPlatform                                                  000F2D GR
+  0 _initPlayer                                                    000FCE GR
     _initrand                                                      ****** GX
-  0 _isCollision                                                   000240 GR
+  0 _isCollision                                                   001032 GR
     _joypad                                                        ****** GX
-  0 _jump                                                          0002DB GR
-  1 _jumping                                                       000572 GR
-  0 _loadFonts                                                     000654 GR
-  0 _loop                                                          000896 GR
-  0 _main                                                          0009AA GR
+  0 _jump                                                          0010CD GR
+  1 _jumping                                                       00026C GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 2.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 _moveActivePlatform                                            00071F GR
-  0 _movePlatform                                                  000046 GR
-  0 _movePlayer                                                    0000AE GR
+  0 _loadFonts                                                     001446 GR
+  0 _loop                                                          0016F0 GR
+  0 _main                                                          001804 GR
+  0 _moveActivePlatform                                            001579 GR
+  0 _movePlatform                                                  000E38 GR
+  0 _movePlayer                                                    000EA0 GR
   0 _performantDelay                                               000000 GR
-  1 _platformDirection                                             000578 GR
-  0 _platformIsUnderPlayer                                         00028D GR
-  1 _platformSpeed                                                 000576 GR
-  1 _platformWaitLength                                            000577 GR
-  1 _platforms                                                     000544 GR
-  0 _playGameOverSFX                                               0008E8 GR
-  0 _playSound                                                     00000F GR
-  1 _player                                                        000568 GR
+  1 _platformDirection                                             000272 GR
+  0 _platformIsUnderPlayer                                         00107F GR
+  1 _platformSpeed                                                 000270 GR
+  1 _platformWaitLength                                            000271 GR
+  1 _platforms                                                     00023E GR
+  0 _playGameOverSFX                                               001742 GR
+  0 _playSound                                                     000DE5 GR
+  1 _player                                                        000262 GR
     _rand                                                          ****** GX
-  0 _randomiseValues                                               0005D2 GR
-  1 _score                                                         00057B GR
-  0 _seedRandom                                                    0006F6 GR
-  0 _setScore                                                      000457 GR
+  0 _randomiseValues                                               0013C4 GR
+  1 _score                                                         000275 GR
+  0 _seedRandom                                                    001550 GR
+  0 _setScore                                                      001249 GR
     _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
     _set_interrupts                                                ****** GX
     _set_sprite_data                                               ****** GX
     _set_win_tiles                                                 ****** GX
     _shadow_OAM                                                    ****** GX
-  0 _showGameOverScreen                                            000691 GR
-  0 _showStartScreen                                               000667 GR
+  0 _showGameOverScreen                                            0014C5 GR
+  0 _showLogo                                                      001459 GR
+  0 _showStartScreen                                               00149B GR
     _song_Data                                                     ****** GX
-  1 _spriteSize                                                    000573 GR
-  0 _startBGM                                                      0008C5 GR
-  0 _updatePlayer                                                  00041A GR
-  0 _updateScore                                                   000584 GR
-  1 _waitCount                                                     000579 GR
+  1 _spriteSize                                                    00026D GR
+  0 _startBGM                                                      00171F GR
+  0 _updatePlayer                                                  00120C GR
+  0 _updateScore                                                   001376 GR
+  1 _waitCount                                                     000273 GR
     _wait_vbl_done                                                 ****** GX
     _waitpad                                                       ****** GX
-  1 _welcomemap                                                    0000E1 GR
+  1 _welcomemap                                                    0000CB GR
   1 _windowmap                                                     0000C0 GR
-  0 _wouldHitSurface                                               00022C GR
+  0 _wouldHitSurface                                               00101E GR
+
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy Z80-like CPU), page 3.
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    9E0   flags    0
-   1 _DATA                                      size    57E   flags    0
+   0 _CODE                                      size   183D   flags    0
+   1 _DATA                                      size    278   flags    0
    2 _DABS                                      size      0   flags    8
    3 _HOME                                      size      0   flags    0
-   4 _GSINIT                                    size   1A8E   flags    0
+   4 _GSINIT                                    size    B70   flags    0
    5 _GSFINAL                                   size      0   flags    0
    6 _CABS                                      size      0   flags    8
 

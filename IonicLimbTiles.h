@@ -1,6 +1,6 @@
 /*
 
- SPLASHTILES.H
+ IONICLIMBTILES.H
 
  Include File.
 
@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 54
+  Tiles                : 0 to 119
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define SplashTilesBank 0
+#define IonicLimbTilesBank 0
 /* Start of tile array. */
-extern unsigned char SplashTiles[];
+extern unsigned char IonicLimbTiles[];
 
-/* End of SPLASHTILES.H */
+/* End of IONICLIMBTILES.H */
